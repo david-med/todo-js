@@ -9,7 +9,7 @@ const txtInput      = document.querySelector ('.new-todo');
 const btnBorrar     = document.querySelector ('.clear-completed');
 const ulFiltros     = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll ('.filtro');
-const contPendiente = document.querySelector('strong');
+export const contPendiente = document.querySelector('strong');
 let contador = 0;
 
 export const crearTodoHTML = ( todo ) => {
@@ -27,15 +27,18 @@ export const crearTodoHTML = ( todo ) => {
     const div = document.createElement('div');
     div.innerHTML = htmlTodo;
     divTodoList.append ( div.firstElementChild );
+    if (!todo.completado) {
+        contador == contador ++;
+        contPendiente.innerText = contador.toString();     
+    }
     return div.firstElementChild;
+
 }
 
 
 txtInput.addEventListener('keyup', (event) => {
     if (event.keyCode === 13 && txtInput.value.length > 0) {
-        contador == contador ++;
-        contPendiente.innerText = contador.toString();        
-
+        
         const nuevoTodo = new Todo(txtInput.value);
 
         todoList.nuevoTodo( nuevoTodo );
