@@ -56,7 +56,7 @@ divTodoList.addEventListener('click', (event) => {
         if (todoElemento.classList.contains('completed')) {
             contador == contador --;
             contPendiente.innerText = contador.toString();   
-        }else if (!todoElemento.classList.contains('completed')){
+        }else {
             contador == contador ++;
             contPendiente.innerText = contador.toString();
         }        
