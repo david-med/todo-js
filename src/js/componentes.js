@@ -35,7 +35,7 @@ txtInput.addEventListener('keyup', (event) => {
     if (event.keyCode === 13 && txtInput.value.length > 0) {
         contador == contador ++;
         contPendiente.innerText = contador.toString();        
-                
+
         const nuevoTodo = new Todo(txtInput.value);
 
         todoList.nuevoTodo( nuevoTodo );
@@ -55,7 +55,10 @@ divTodoList.addEventListener('click', (event) => {
         todoElemento.classList.toggle('completed');
         if (todoElemento.classList.contains('completed')) {
             contador == contador --;
-            contPendiente.innerText = contador.toString();        
+            contPendiente.innerText = contador.toString();   
+        }else if (!todoElemento.classList.contains('completed')){
+            contador == contador ++;
+            contPendiente.innerText = contador.toString();
         }        
     }else if (nombreElemento.includes ('button')){
         
